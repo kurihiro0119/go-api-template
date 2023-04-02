@@ -14,9 +14,10 @@ CMD ["/app/cmd/app"]
 
 FROM alpine:3.14
 
+ENV APP_ROOT=/app/app
 WORKDIR /app
 
 COPY --from=builder /app ./app
 RUN chmod +x /app/app
 
-CMD ["./app/cmd/app"]
+CMD ["./app/cmd/app", "development"]
